@@ -1,0 +1,32 @@
+<p>order works!</p>
+<div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>OrderID</th>
+            <th>CustomerID</th>
+            <th>OrderDetails</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let porosi of orders">
+            <td>{{ porosi.orderId}}</td>
+            <td>{{ porosi.customerId }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let detail of porosi.orderDetails">
+                  Produkti: {{ detail.productId }},
+                  Sasia: {{ detail.quantity }},
+                  Totali: {{ detail.total }} Lekë,
+                  Adresa: {{ detail.adresa }},
+                  Pagesa: {{ detail.paymentMethod }},
+                  Statusi: {{ detail.status }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
