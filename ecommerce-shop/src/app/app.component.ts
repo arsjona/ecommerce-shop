@@ -1,11 +1,12 @@
 
 
 import { Component } from '@angular/core';
-import { MainpageComponent } from './mainpage/mainpage.component';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+
 @Component({
   selector: 'app-root',
-  imports: [MainpageComponent, CommonModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

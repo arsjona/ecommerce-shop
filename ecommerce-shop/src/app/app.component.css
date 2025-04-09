@@ -1,0 +1,17 @@
+.gallery {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gallery-img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}/*# sourceMappingURL=app.component.css.map */
