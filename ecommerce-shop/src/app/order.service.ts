@@ -5,6 +5,7 @@ import { ORDERS } from "./shared/mock-order";
 
 @Injectable()
 export class OrderService {
+ 
   getOrders(): Observable<Order[]> {
     return of(ORDERS);
   }

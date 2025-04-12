@@ -1,29 +1,37 @@
-
-import { Component, OnInit } from "@angular/core";
-import { Order } from "../shared/order"
+import { Component} from "@angular/core";
 import { OrderService } from "../order.service";
 import { CommonModule } from '@angular/common';
-
+import { Router } from "@angular/router";
+import { FormsModule } from "@angular/forms";
 @Component({
   selector: "app-order",
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: "./order.component.html",
   styleUrls: ["./order.component.scss"],
   providers: [OrderService]
 })
-export class OrderComponent implements OnInit {
-  orders: Order[] = [];
-
+export class OrderComponent  {
+  product = {
+    color: '',
+    size: '',
+    price: ''
+  };
+  address = '';
+  paymentMethod = '';
+  quantity = 1;
   constructor(private orderService: OrderService) {}
-
-  ngOnInit(): void {
-    this.loadOrders();
+  submitOrder() {
+    console.log({
+      product: this.product,
+      address: this.address,
+      paymentMethod: this.paymentMethod,
+      quantity: this.quantity
+    });
   }
-
-  private loadOrders(): void {
-    this.orderService
-      .getOrders()
-      .subscribe((orders: Order[]) => this.orders = orders);
-  }
+  
 }
+
+
+
+
 
