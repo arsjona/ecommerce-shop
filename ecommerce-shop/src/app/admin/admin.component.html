@@ -1,0 +1,60 @@
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">MyShop</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto align-items-center">
+      <li class="nav-item mx-2">
+        <form class="d-flex">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-dark" href="#">Contact</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-dark" href="#">Cart</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a
+            routerLink="/admin/users"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Users</a
+          >
+        </li>
+        <li class="list-group-item">
+          <a routerLink="/admin/categories" ariaCurrentWhenActive="page"
+            >Categories</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-10">
+      <router-outlet>
+      </router-outlet>
+    </div>
+  </div>
+</div>

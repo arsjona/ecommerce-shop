@@ -1,0 +1,100 @@
+
+
+  <div class="welcome-section text-center d-flex justify-content-between">
+    <div class="welcome">
+        <h2 class="fw-semibold text-dark">Users list</h2>
+        <p class="text-muted">Manage users</p>
+    </div>
+    <button type="button" style="height: 40px;" class="btn btn-primary" (click)="showUserModal()">
+        Add new user
+      </button>
+  </div>
+
+  <div class="row px-3">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Role</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <th scope="row">{{user.id}}</th>
+              <td>{{user.username}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.role}}</td>
+              <td class="d-flex gap-2">
+                  <button class="btn btn-outline-secondary mr-2" type="button" (click)="selectUser(user.id)">Edit</button>
+                  <button class="btn btn-danger" type="button" (click)="del(user.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+
+  
+  <!-- Create User Modal -->
+  <div
+    class="modal fade show d-block"
+    tabindex="-1"
+    *ngIf="isUserModalOpen"
+    style="background: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1050;"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-3">
+        <div class="modal-header">
+          <h5 class="modal-title">Create new user</h5>
+          <button type="button" class="btn-close" aria-label="Close" (click)="closeUserModal()"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <input type="text" class="form-control mb-2" name="user.username" placeholder="Username" [(ngModel)]="user.username" />
+            <input type="email" class="form-control mb-2" name="user.email" placeholder="Email" [(ngModel)]="user.email" />
+            <select class="form-select" name="user.role" aria-label="Default select example" [(ngModel)]="user.role">
+                <option value="" selected>Select role</option>
+                <option *ngFor="let role of roles" value="{{role}}">{{role}}</option>
+            </select>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeUserModal()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="createUser()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit User Modal -->
+  <div
+    class="modal fade show d-block"
+    tabindex="-1"
+    *ngIf="isEditUserModalOpen"
+    style="background: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1050;"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-3">
+        <div class="modal-header">
+          <h5 class="modal-title">Create new user</h5>
+          <button type="button" class="btn-close" aria-label="Close" (click)="closeEditUserModal()"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <input type="text" class="form-control mb-2" name="user.username" placeholder="Username" [(ngModel)]="user.username" />
+            <input type="email" class="form-control mb-2" name="user.email" placeholder="Email" [(ngModel)]="user.email" />
+            <select class="form-select" name="user.role" aria-label="Default select example" [(ngModel)]="user.role">
+                <option value="" selected>Select role</option>
+                <option *ngFor="let role of roles" value="{{role}}">{{role}}</option>
+            </select>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeEditUserModal()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>

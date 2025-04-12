@@ -39,13 +39,13 @@
       </div>
       <div class="modal-body">
         <form>
-          <input type="text" class="form-control mb-2" placeholder="Username" />
-          <input type="password" class="form-control" placeholder="Password" />
+          <input type="text" class="form-control mb-2" name="username" placeholder="Username" [(ngModel)]="username" />
+          <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password" />
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="login()">Submit</button>
       </div>
     </div>
   </div>

@@ -12,6 +12,8 @@ export class MainpageComponent {
  constructor(private router: Router){}
   isModalOpen = false;
   isProductModalOpen = false;
+  username = "";
+  password = "";
 
   selectedProduct = {
     color: '',
@@ -35,5 +37,13 @@ export class MainpageComponent {
   }
   toOrderPage(){
   window.location.href='/order';
-}
+  }
+
+  login(){
+    if(this.username === "admin" && this.password === "1234"){
+      window.location.href = "/admin"
+    } else {
+      alert("wrong username/password combo")
+    }
+  }
 }
