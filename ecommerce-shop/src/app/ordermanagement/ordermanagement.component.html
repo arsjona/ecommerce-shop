@@ -1,0 +1,34 @@
+
+<h2>Submitted Orders</h2>
+<ul *ngIf="orders.length > 0">
+  <li *ngFor="let order of orders; let i = index">
+    <strong>Order #{{ i + 1 }} (ID: {{ order.orderId }})</strong><br>
+    Customer ID: {{ order.customerId }}<br>
+    <div *ngFor="let detail of order.orderDetails; let j = index">
+      Product ID: {{ detail.productId }}<br>
+      Color: {{ detail.color }}<br>
+      Size: {{ detail.size }}<br>
+      Price per item: {{ detail.price }}<br>
+      Quantity: {{ detail.quantity }}<br>
+      Total: {{ detail.total}}<br>
+      Address: {{ detail.adresa }}<br>
+      Payment: {{ detail.paymentMethod }}<br>
+
+      <label>Status: 
+        <select [(ngModel)]="orders[i].orderDetails[j].status">
+          <option value="ne pritje">Ne pritje</option>
+          <option value="ne proces">Ne proces</option>
+          <option value="derguar">Dërguar</option>
+          <option value="anulluar">Anulluar</option>
+        </select>
+      </label>
+      <button (click)="saveOrderStatus()">Save</button>
+      <button (click)="deleteOrder(order.orderId)">Delete</button>
+    </div>
+    <hr>
+  </li>
+</ul>
+
+<p *ngIf="orders.length === 0">No orders submitted yet.</p>
+
+
