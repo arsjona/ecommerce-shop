@@ -11,7 +11,7 @@ import {FormsModule} from '@angular/forms';
 export class UsersComponent {
   isUserModalOpen = false;
   isEditUserModalOpen = false;
-  isCategoryModalOpen = false;
+  
 
   roles = ["User", "Project Manager", "Admin"]
 
@@ -71,21 +71,12 @@ export class UsersComponent {
     this.isEditUserModalOpen = true;
   }
 
-  showCategoryModal() {
-    this.isCategoryModalOpen = true;
-  }
-
-
   closeUserModal() {
     this.isUserModalOpen = false;
   }
 
   closeEditUserModal() {
     this.isEditUserModalOpen = false;
-  }
-
-  closeCategoryModal() {
-    this.isCategoryModalOpen = false;
   }
 
 }

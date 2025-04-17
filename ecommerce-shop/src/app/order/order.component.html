@@ -1,7 +1,8 @@
 
   <div>
     <h2>Order Form</h2>
-    <form (ngSubmit)="submitOrder()">
+    <!-- (ngSubmit)="submitOrder()"-->
+    <form>
       <p><strong>Product Details:</strong></p>
       <p>Color: {{ product.color }}</p>
       <p>Size: {{ product.size }}</p>
@@ -26,8 +27,9 @@
         <input id="quantity" type="number" [(ngModel)]="quantity" name="quantity" required min="1" />
       </div>
   
-      <button type="submit">Submit Order</button>
+      <button type="submit" (click)="submitOrder()">Submit Order</button>
     </form>
   </div>
+  
   
   

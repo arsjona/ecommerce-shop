@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import{OrderService} from'../order.service';
 @Component({
   selector: 'app-mainpage',
   imports: [CommonModule, FormsModule],
@@ -9,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./mainpage.component.scss'],
 })
 export class MainpageComponent {
- constructor(private router: Router){}
+ constructor(private router: Router, private orderService: OrderService){}
   isModalOpen = false;
   isProductModalOpen = false;
   username = "";
@@ -36,9 +37,11 @@ export class MainpageComponent {
     this.isProductModalOpen = true;
   }
   toOrderPage(){
-  window.location.href='/order';
-  }
+ this.orderService.setProduct(this.selectedProduct);
+  this.router.navigate(['/order']);
+ 
 
+  }
   login(){
     if(this.username === "admin" && this.password === "1234"){
       window.location.href = "/admin"
