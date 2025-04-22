@@ -15,12 +15,18 @@ export class MainpageComponent {
   isProductModalOpen = false;
   username = "";
   password = "";
+  isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   selectedProduct = {
     color: '',
     size: '',
     price: ''
   };
+
+  logout() {
+    this.isLoggedIn = false;
+    localStorage.setItem("isLoggedIn", "false");
+  }
  
 
   showModal() {
@@ -37,13 +43,13 @@ export class MainpageComponent {
     this.isProductModalOpen = true;
   }
   toOrderPage(){
- this.orderService.setProduct(this.selectedProduct);
-  this.router.navigate(['/order']);
- 
-
+    this.orderService.setProduct(this.selectedProduct);
+    this.router.navigate(['/order']);
   }
   login(){
     if(this.username === "admin" && this.password === "1234"){
+      localStorage.setItem("isLoggedIn", "true");
+      this.isLoggedIn = true;
       window.location.href = "/admin"
     } else {
       alert("wrong username/password combo")
