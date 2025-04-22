@@ -11,16 +11,25 @@ import{OrderService} from'../order.service';
 })
 export class MainpageComponent {
  constructor(private router: Router, private orderService: OrderService){}
+  ngOnInit(): void {
+    const savedProducts = localStorage.getItem("products");
+    if(savedProducts){
+      this.products = JSON.parse(savedProducts);
+    }
+  }
   isModalOpen = false;
   isProductModalOpen = false;
   username = "";
   password = "";
+  products: any[] = [];
   isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   selectedProduct = {
-    color: '',
-    size: '',
-    price: ''
+    name: "",
+    description: "",
+    color: "",
+    size: "",
+    price: ""
   };
 
   logout() {
@@ -38,8 +47,8 @@ export class MainpageComponent {
     this.isProductModalOpen = false;
   }
 
-  openProductModal(color: string, size: string, price: string) {
-    this.selectedProduct = { color, size, price };
+  openProductModal(id: string) {
+    this.selectedProduct = Object.assign({}, this.products.find(product => product.id === id));
     this.isProductModalOpen = true;
   }
   toOrderPage(){

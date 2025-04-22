@@ -66,8 +66,9 @@
         <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <p><strong>Name:</strong> {{ selectedProduct.name }}</p>
+        <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
         <p><strong>Color:</strong> {{ selectedProduct.color }}</p>
-        <p><strong>Size:</strong> {{ selectedProduct.size }}</p>
         <p><strong>Price:</strong> {{ selectedProduct.price }}</p>
       </div>
       <div class="modal-footer">
@@ -113,35 +114,11 @@
       </div>
 
       <div class="row px-3">
-        <div class="col-md-3 mb-4">
-          <img src="https://images.veromoda.com/10320531/4636878/003/veromoda-vmfortunesaralongcoatgaboo-red.jpg?v=8996fd4f24d5e087bdef985e50334848&format=webp&width=1280&quality=90&key=25-0-3&bg-color=F5F5F5"
-            alt="Product 1"
+        <div *ngFor="let product of products" class="col-md-3 mb-4">
+          <img src={{product.image}}
+            alt={{product.name}}
             class="d-block w-100 h-100 img-fluid product-img"
-            (click)="openProductModal('Red', 'Medium', '$49.99')"
-          />
-        </div>
-        <div class="col-md-3 mb-4">
-          <img
-            src="https://i.etsystatic.com/9650245/r/il/30dfdd/4270091216/il_fullxfull.4270091216_4pyg.jpg"
-            alt="Product 2"
-            class="d-block w-100 img-fluid product-img"
-            (click)="openProductModal('Blue', 'Large', '$59.99')"
-          />
-        </div>
-        <div class="col-md-3 mb-4">
-          <img
-            src="https://imbervintage.com/cdn/shop/products/image_7d982ecc-4fb4-4652-9db0-1f2b00d25f78_2000x2500.jpg?v=1674442318"
-            alt="Product 3"
-            class="d-block w-100 img-fluid product-img"
-            (click)="openProductModal('Green', 'Small', '$39.99')"
-          />
-        </div>
-        <div class="col-md-3 mb-4">
-          <img
-            src="https://xlarge.com.au/cdn/shop/files/XL024S1201_PIGBLK_1_ijf0zh.jpg?v=1718852011"
-            alt="Product 4"
-            class="d-block w-100 img-fluid product-img"
-            (click)="openProductModal('Black', 'XL', '$69.99')"
+            (click)="openProductModal(product.id)"
           />
         </div>
       </div>
