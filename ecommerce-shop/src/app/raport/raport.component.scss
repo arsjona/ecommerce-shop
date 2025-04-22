@@ -1,0 +1,67 @@
+/* Base styling for the container */
+div.p-4 {
+    background-color: #f9fafb;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+  }
+  
+  /* Headline */
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #1f2937; // dark gray
+  }
+  
+  /* Stats at top */
+  p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    strong {
+      font-weight: 600;
+      color: #2563eb; // blue highlight
+    }
+  }
+  
+  /* Order list */
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  
+    li {
+      background-color: #ffffff;
+      border-left: 5px solid #3b82f6; // blue stripe
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  
+      strong {
+        display: inline-block;
+        width: 100px;
+        color: #111827;
+      }
+  
+      ul {
+        margin-top: 0.5rem;
+        padding-left: 1.25rem;
+  
+        li {
+          border: none;
+          background: transparent;
+          padding: 0.25rem 0;
+          font-size: 0.95rem;
+          color: #4b5563;
+        }
+      }
+    }
+  }
+  
+  /* No orders message */
+  ng-template p {
+    font-style: italic;
+    color: #9ca3af;
+  }
+  
