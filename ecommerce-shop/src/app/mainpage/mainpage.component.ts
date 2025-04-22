@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import{OrderService} from'../order.service';
+
 @Component({
   selector: 'app-mainpage',
   imports: [CommonModule, FormsModule],
@@ -10,7 +11,8 @@ import{OrderService} from'../order.service';
   styleUrls: ['./mainpage.component.scss'],
 })
 export class MainpageComponent {
- constructor(private router: Router, private orderService: OrderService){}
+ constructor(private router: Router, private orderService: OrderService,){}
+ 
   isModalOpen = false;
   isProductModalOpen = false;
   username = "";
@@ -22,7 +24,7 @@ export class MainpageComponent {
     price: ''
   };
  
-
+ 
   showModal() {
     this.isModalOpen = true;
   }
