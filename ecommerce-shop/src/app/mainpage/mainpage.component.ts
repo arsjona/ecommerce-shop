@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import{OrderService} from'../order.service';
+
 @Component({
   selector: 'app-mainpage',
   imports: [CommonModule, FormsModule],
@@ -37,7 +38,7 @@ export class MainpageComponent {
     localStorage.setItem("isLoggedIn", "false");
   }
  
-
+ 
   showModal() {
     this.isModalOpen = true;
   }

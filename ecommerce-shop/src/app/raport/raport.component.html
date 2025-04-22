@@ -1,0 +1,29 @@
+
+<div class="p-4">
+    <h2 class="text-2xl font-bold mb-4">Weekly Order Report</h2>
+  
+    <div *ngIf="weeklyOrders.length > 0; else noOrders">
+      <p>Total Orders: <strong>{{ totalOrders }}</strong></p>
+      <p>Total Revenue: <strong>{{ totalRevenue | currency }}</strong></p>
+  
+      <hr class="my-4">
+  
+      <ul>
+        <li *ngFor="let order of weeklyOrders" class="mb-3">
+          <strong>Order ID:</strong> {{ order.orderId }}<br>
+          <strong>Date:</strong> {{ order.orderId | date:'medium' }}<br>
+          <strong>Details:</strong>
+          <ul>
+            <li *ngFor="let detail of order.orderDetails">
+              {{ detail.quantity }} x {{ detail.color }} ({{ detail.size }}) - {{ detail.total | currency }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  
+    <ng-template #noOrders>
+      <p>No orders placed this week.</p>
+    </ng-template>
+  </div>
+  

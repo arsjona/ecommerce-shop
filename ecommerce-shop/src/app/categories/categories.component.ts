@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import{ CommonModule } from '@angular/common';
 import{ FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-categories',
   imports: [CommonModule,FormsModule],
@@ -10,8 +11,8 @@ import{ FormsModule } from '@angular/forms';
 export class CategoriesComponent {
   isCategoryModalOpen = false;
   isEditCategoryModalOpen = false;
- 
- 
+  isDeleteCategoryModalOpen = false;
+
   categories: any[] = [
     {
       id: 1,
