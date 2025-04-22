@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import{OrderService} from'../order.service';
-
+import { CategoryService } from '../category.service';
 @Component({
   selector: 'app-mainpage',
   imports: [CommonModule, FormsModule],
@@ -18,6 +18,7 @@ export class MainpageComponent {
   username = "";
   password = "";
 
+  
   selectedProduct = {
     color: '',
     size: '',

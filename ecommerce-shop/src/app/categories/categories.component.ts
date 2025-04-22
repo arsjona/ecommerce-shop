@@ -12,7 +12,7 @@ export class CategoriesComponent {
   isCategoryModalOpen = false;
   isEditCategoryModalOpen = false;
   isDeleteCategoryModalOpen = false;
-
+ 
   categories: any[] = [
     {
       id: 1,
@@ -28,7 +28,7 @@ export class CategoriesComponent {
   }
 
   createCategory(){
-    this.categories.push({
+   this.categories.push({
       ...this.category,
       id: this.categories.length + 1
     });
@@ -38,6 +38,7 @@ export class CategoriesComponent {
       description: ""
     }
     this.closeCategoryModal()
+
   }
 
   showCategoryModal() {
