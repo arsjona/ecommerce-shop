@@ -13,6 +13,13 @@ export class AdminComponent {
   isUserModalOpen = false;
   isEditUserModalOpen = false;
   isCategoryModalOpen = false;
+  isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  ngOnInit(): void {
+    if(!this.isLoggedIn){
+      window.location.href = "/";
+    }
+  }
 
   roles = ["User", "Project Manager", "Admin"]
 
@@ -31,6 +38,14 @@ export class AdminComponent {
     email: "",
     role: ""
   }
+
+  
+  logout() {
+    this.isLoggedIn = false;
+    localStorage.setItem("isLoggedIn", "false");
+    window.location.href = "/";
+  }
+ 
 
   createUser(){
     this.users.push({
