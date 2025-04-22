@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ValueChangeEvent } from '@angular/forms';
 import{OrderService} from'../order.service';
 
 @Component({
@@ -37,8 +37,23 @@ export class MainpageComponent {
     this.isLoggedIn = false;
     localStorage.setItem("isLoggedIn", "false");
   }
- 
- 
+
+  private _search = '';
+
+  get search(): string {
+    return this._search;
+  }
+
+  set search(value: string) {
+    this._search = value;
+    let allProducts: any[] = [];
+    const productsFromLocalStorage = localStorage.getItem("products");
+    if(productsFromLocalStorage){
+      allProducts = JSON.parse(productsFromLocalStorage);
+    }
+    this.products = allProducts.filter((product) => product.name.toLowerCase().includes(value));
+  }
+
   showModal() {
     this.isModalOpen = true;
   }

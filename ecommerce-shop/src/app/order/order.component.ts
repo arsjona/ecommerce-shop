@@ -20,8 +20,6 @@ export class OrderComponent implements OnInit {
   paymentMethod: 'cash' | 'card'= 'cash';
   quantity = 1;
 
-  
-
   submittedOrders: any[] = [];  
 
   constructor(private orderService: OrderService, private router: Router ) {}
