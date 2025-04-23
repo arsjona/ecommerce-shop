@@ -22,10 +22,13 @@
         </form>
       </li>
       <li class="nav-item mx-2">
-        <a class="nav-link text-dark" href="#">Contact</a>
+        <a class="nav-link text-dark" href="/">Home</a>
       </li>
       <li class="nav-item mx-2">
         <a class="nav-link text-dark" href="#">Cart</a>
+      </li>
+      <li class="nav-item mx-2">
+        <button *ngIf="isLoggedIn" type="button" class="btn btn-secondary" (click)="logout()">Logout</button>
       </li>
     </ul>
   </div>

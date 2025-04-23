@@ -20,8 +20,6 @@ export class OrderComponent implements OnInit {
   paymentMethod: 'cash' | 'card'= 'cash';
   quantity = 1;
 
-  
-
   submittedOrders: any[] = [];  
 
   constructor(private orderService: OrderService, private router: Router ) {}
@@ -57,7 +55,7 @@ export class OrderComponent implements OnInit {
   this.orderService.addOrder(newOrder);
 
     // Navigate to the order management page after submission
-    this.router.navigate(['/ordermanagement']);
+    this.router.navigate(['/admin/ordermanagement']);
  
 }
 }
