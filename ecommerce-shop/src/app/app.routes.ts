@@ -8,6 +8,7 @@ import { DefaultComponent } from './default/default.component';
 import { OrdermanagementComponent } from './ordermanagement/ordermanagement.component';
 import{ ProductsComponent } from './products/products.component';
 import { RaportComponent } from './raport/raport.component';
+import { ContactComponent } from './contact/contact.component';
 const routes = [
     { path: '', component: MainpageComponent },
     { path: 'admin', component: AdminComponent, children: [
@@ -18,6 +19,7 @@ const routes = [
         {path: "products", component: ProductsComponent},
         {path: "raport", component: RaportComponent},
     ] },
-  {path : 'order',component: OrderComponent}
+  {path : 'order',component: OrderComponent},
+  { path: 'contact', component: ContactComponent },
 ]
 export { routes };

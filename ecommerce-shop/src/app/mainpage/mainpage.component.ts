@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule, ValueChangeEvent } from '@angular/forms';
@@ -25,6 +25,7 @@ export class MainpageComponent {
   products: any[] = [];
   isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
+  
   selectedProduct = {
     name: "",
     description: "",
@@ -79,5 +80,8 @@ export class MainpageComponent {
     } else {
       alert("wrong username/password combo")
     }
+  }
+  toContactPage(){
+    this.router.navigate(['/contact']);
   }
 }
