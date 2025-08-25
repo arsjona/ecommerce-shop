@@ -1,1 +1,1 @@
-# ecommerce-shop
+This is an in-development e-commerce web application. It features an admin panel for managing categories, users, products, orders, and sales reports. On the main page, users can search products by color and, by clicking Add to Cart, proceed directly to the order page to enter their information and complete the purchase. The project aims to provide a simple and efficient online shopping experience along with robust store management capabilities.
